@@ -1,12 +1,14 @@
 import logo from "./logo.svg";
 import "./App.css";
 import NavBar from "./components/NavBar";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div>
-      <h1>e-commerce de Julian Fuentes</h1>
+      <Header />
       <NavBar />
+      <h2>Las ofertas de la semana</h2>
     </div>
   );
 }
