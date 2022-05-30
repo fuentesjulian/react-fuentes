@@ -1,15 +1,15 @@
 import logo from "./logo.svg";
 import "./App.css";
-import NavBar from "./components/NavBar";
-import Header from "./components/Header";
+import NavBar from "./components/NavBar/NavBar.jsx";
+import Header from "./components/Header/Header.jsx";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <NavBar />
       <h2>Las ofertas de la semana</h2>
-    </div>
+    </>
   );
 }
 
