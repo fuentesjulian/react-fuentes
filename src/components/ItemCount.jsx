@@ -30,7 +30,7 @@ function ItemCount({ stock, initial, onAdd }) {
       <button
         className="btn btn-primary"
         onClick={() => {
-          onAdd(q);
+          if (stock > 0) onAdd(q);
         }}
       >
         Agregar al carrito
