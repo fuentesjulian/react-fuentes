@@ -3,7 +3,7 @@ import "./App.css";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import Header from "./components/Header/Header.jsx";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import ItemCount from "./components/ItemCount";
+import ItemCount from "./components/ItemCount/ItemCount.jsx";
 import onAdd from "./components/onAdd";
 
 function App() {

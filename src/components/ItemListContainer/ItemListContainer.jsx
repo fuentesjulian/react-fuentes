@@ -8,7 +8,7 @@ function ItemListContainer({greeting}) {
     const itemLoading = new Promise((res, rej) => {
       setTimeout(() => {
         res([
-          { id: "PR5", title: "Procesador Ryzen 5", description: "Procesador Ryzen 5 3900x", price: 36000, pictureUrl: "./assets/img/ryzen5.PNG", stock: 5 },
+          { id: "PR5", title: "Procesador Ryzen 5", description: "Procesador Ryzen 5 3900x", price: 36000, pictureUrl: "./assets/img/ryzen5.PNG", stock: 0 },
           { id: "PR7", title: "Procesador Ryzen 7", description: "Procesador Ryzen 7 5800x", price: 65000, pictureUrl: "./assets/img/ryzen7.PNG", stock: 2 },
           { id: "PI5", title: "Procesador Intel I5", description: "Procesador Intel i5 10ma generacion", price: 37000, pictureUrl: "./assets/img/i5.PNG", stock: 4 },
           { id: "PI7", title: "Procesador Intel I7", description: "Procesador Intel i7 10ma generacion", price: 67000, pictureUrl: "./assets/img/i7.PNG", stock: 4 },
