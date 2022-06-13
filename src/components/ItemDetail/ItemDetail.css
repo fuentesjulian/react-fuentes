@@ -1,0 +1,19 @@
+#itemDetail {
+  margin-top: 2em;
+  margin-left: 20em;
+  margin-right: 20em;
+}
+
+#itemDetail img {
+    margin: 1em;
+}
+
+#itemDetailBody{
+    padding: 1em;
+    margin-left: 1em;
+}
+
+#itemCount{
+    text-align: center;
+
+}

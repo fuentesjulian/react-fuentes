@@ -1,23 +1,24 @@
 import React from "react";
-import ItemCount from "../ItemCount/ItemCount.jsx";
+import { Link } from "react-router-dom";
 import "./Item.css";
-import onAdd from "../onAdd"
 
 function Item({ item }) {
-  let { id, title, description, price, pictureUrl, stock } = item;
+  let { id, title, price, image, stock } = item;
+
+  const formattedPrice = price.toLocaleString();
+
   return (
     <div className="itemCard">
-      <img className="card-img" src={pictureUrl} alt="Card image cap" />
+      <img className="card-img" src={image} alt="Card image cap" />
       <div className="itemCard-body">
         <div className="itemCard-bodyTop">
-          <h5 className="itemCard-title">{title}</h5>
-          <p className="itemCard-description">{description}</p>
+          <p className="itemCard-title">{title}</p>
         </div>
         <div className="itemCard-bodyBottom">
-          <div className="itemCard-price">$ {price.toLocaleString()}</div>
+          <div className="itemCard-price">$ {formattedPrice}</div>
           <div className="itemCard-stock">{stock > 0 ? <>Stock: {stock} unidades</> : <>Sin stock</>}</div>
           <div className="col-md-12 text-center itemCard-btn">
-          <button className="btn-buy" disabled={!(stock>0)}>Comprar</button>
+            {(stock>0)?<Link className="btn-buy" to={`/item/${id}`}>Comprar</Link>:<div className="btn-buy-disabled">Comprar</div>}
           </div>
         </div>
       </div>
