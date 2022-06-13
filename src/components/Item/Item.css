@@ -1,0 +1,119 @@
+.itemCard-title {
+  line-height: 1em;
+}
+
+.itemCard-description {
+  line-height: 1em;
+  font-size: small;
+}
+
+.itemCard-price {
+  font-size: 1.5em;
+}
+.itemCard-stock {
+  font-size: smaller;
+  line-height: 0.5em;
+}
+
+.itemCard:hover {
+  animation-duration: 1s;
+  animation-name: sombrear;
+  animation-timing-function: ease-out;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+@keyframes sombrear {
+  0% {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+  }
+}
+
+.btn-buy {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.2rem;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #464646;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.btn-buy:hover {
+  color: white;
+  background-color: #1b1b1b;
+}
+
+.btn-buy-disabled {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: not-allowed;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.2rem;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #a8a8a8;
+}
+
+.itemCard-bodyTop {
+  grid-area: bodyTop;
+}
+
+.itemCard-bodyBottom {
+  grid-area: bodyBottom;
+}
+.itemCard-body {
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "bodyTop" "bodyBottom";
+}
+
+.itemCard-btn {
+  margin-top: 1em;
+}
+
+.card-img {
+  grid-area: cardImg;
+  align-self: center;
+  height: 15.6em;
+}
+
+.card-img img {
+  max-height: 100%;
+  max-width: auto;
+}
+
+.itemCard-body {
+  grid-area: cardBody;
+}
+
+.itemCard {
+  width: 17em;
+  height: 26em;
+  margin: 1em;
+  position: relative;
+  display: grid;
+  grid-template-areas: "cardImg" "cardBody";
+  grid-template-rows: 60% 40%;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}

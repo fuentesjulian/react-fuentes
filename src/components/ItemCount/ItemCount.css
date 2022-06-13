@@ -1,0 +1,9 @@
+.cantidad{
+    display: inline-block;
+    margin: 1em;
+    font-weight: bold;
+}
+
+.stock{
+    font-size: smaller;
+}
