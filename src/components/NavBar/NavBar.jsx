@@ -23,7 +23,7 @@ function NavBar() {
           </ul>
           <ul className="navbar-nav">
             <li className="nav-item" id="cuentaCarrito">
-              <Link className="nav-link" to="/carrito">
+              <Link className="nav-link" to="/cart">
                 <CartWidget items={4} />
               </Link>
             </li>
