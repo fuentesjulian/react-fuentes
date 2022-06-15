@@ -33,7 +33,7 @@ function ItemDetail({ item }) {
                 <p className="card-text">{description}</p>
                 <h5>Precio: $ {formattedPrice}</h5>
                 <div id="itemCount">
-                  {(ordered)?<ItemCheckout />:<ItemCount stock={stock} initial={1} onAdd={onAdd} quantity={quantity} setQuantity={setQuantity} />}
+                  {(ordered)?<ItemCheckout />:<ItemCount stock={stock} initial={1} onAdd={onAdd} />}
                 </div>
               </div>
             </div>
