@@ -30,7 +30,7 @@ function ItemListContainer({ greeting }) {
   return (
     <div id="itemListContainer">
       <section id="greeting">{greeting}</section>
-      <section>{items.length > 0 ? <ItemBrowser items={items} selectedItem={id}/> : <></>}</section>
+      <section>{items.length > 0 ? <ItemBrowser items={items} selectedItem={id} /> : <></>}</section>
       <section>{items.length > 0 ? <ItemList items={selectedItems} /> : <>Loading</>}</section>
     </div>
   );

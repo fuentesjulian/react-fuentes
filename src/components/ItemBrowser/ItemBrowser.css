@@ -1,15 +1,13 @@
-
-
 #categoryList ul {
-    list-style-type: none; 
-    display:flex; 
-    justify-content: center;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
 }
 
 #categoryList ul li {
-    margin: 1em;
+  margin: 1em;
 }
 
-#categoryList ul li a{
-    text-decoration: none;
+#categoryList ul li a {
+  text-decoration: none;
 }

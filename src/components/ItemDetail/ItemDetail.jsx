@@ -2,13 +2,15 @@ import React from "react";
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount.jsx";
 import ItemCheckout from "../ItemCheckout/ItemCheckout.jsx";
-
+import { Contexto } from "../CartContext/CartContext";
 import { useState, useEffect } from "react";
+import { useContext } from "react";
 
 function ItemDetail({ item }) {
+  const { addItem, myCart } = useContext(Contexto);
   let { id, title, price, image, stock, description } = item;
   const formattedPrice = price.toLocaleString();
-
+  const initQuantity = myCart.find((item) => item.id === id) ? myCart.find((item) => item.id === id).quantity : 1;
   const [quantity, setQuantity] = useState();
   const [ordered, setOrdered] = useState(false);
   useEffect(() => {
@@ -16,6 +18,7 @@ function ItemDetail({ item }) {
   }, [quantity]);
 
   const onAdd = (q) => {
+    addItem(item, q);
     setQuantity(q);
   };
 
@@ -32,9 +35,7 @@ function ItemDetail({ item }) {
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{description}</p>
                 <h5>Precio: $ {formattedPrice}</h5>
-                <div id="itemCount">
-                  {(ordered)?<ItemCheckout />:<ItemCount stock={stock} initial={1} onAdd={onAdd} />}
-                </div>
+                <div id="itemCount">{ordered ? <ItemCheckout /> : <ItemCount stock={stock} initial={initQuantity} onAdd={onAdd} />}</div>
               </div>
             </div>
           </div>

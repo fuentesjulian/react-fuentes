@@ -1,0 +1,51 @@
+.list-group-item .imagen {
+  grid-area: imagenCheckOut;
+}
+.list-group-item .texto {
+  font-size: small;
+  grid-area: textoCheckOut;
+  margin: 0.5em;
+}
+
+.list-group-item .texto .total {
+  font-weight: bold;
+  font-size: large;
+  margin: 0.5em;
+}
+
+.list-group-item .texto.total {
+  font-weight: bold;
+  font-size: large;
+  margin: 0.5em;
+}
+
+.list-group-item .cantidad {
+  font-weight: bold;
+  grid-area: cantidadCheckOut;
+  margin: 0.5em;
+}
+.list-group-item .precio {
+  font-weight: bold;
+  grid-area: precioCheckOut;
+  margin: 0.5em;
+}
+
+.list-group-item .eliminar {
+  cursor: pointer;
+  grid-area: eliminarCheckout;
+}
+
+li.list-group-item {
+  display: grid;
+  grid-template-columns: 20% 40% 20% 15% 5%;
+  align-items: center;
+  grid-template-areas: "imagenCheckOut textoCheckOut cantidadCheckOut precioCheckOut eliminarCheckout";
+}
+
+.list-group-item .imagen img {
+  max-width: 8em;
+}
+
+.list-group-item .texto .nombre {
+  font-weight: bold;
+}
