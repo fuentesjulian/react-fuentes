@@ -18,7 +18,7 @@ function ItemDetailContainer() {
   };
   useEffect(() => {
     fetchItem(myUrl, id);
-  }, []);
+  }, [id]);
 
   return <>{(item)? <ItemDetail item={item} /> : <>Loading</>}</>;
 }

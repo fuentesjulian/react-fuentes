@@ -7,6 +7,7 @@ function ItemListContainer({ greeting }) {
   const { id } = useParams();
 
   const [items, setItems] = useState([]);
+  const [navLinks, setNavLinks] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
   const myUrl = "https://run.mocky.io/v3/ab3ab053-792c-406b-8524-eb0e70f07b3f";
   const fetchItems = (url) => {
@@ -15,6 +16,7 @@ function ItemListContainer({ greeting }) {
       .then((data) => {
         setItems(data);
         setSelectedItems(data);
+        setNavLinks([...new Set(data.map((item) => item.category))]);
       })
       .catch((error) => console.log(error));
   };
@@ -30,7 +32,7 @@ function ItemListContainer({ greeting }) {
   return (
     <div id="itemListContainer">
       <section id="greeting">{greeting}</section>
-      <section>{items.length > 0 ? <ItemBrowser items={items} selectedItem={id} /> : <></>}</section>
+      <section>{items.length > 0 ? <ItemBrowser navLinks={navLinks} selectedItem={id} /> : <></>}</section>
       <section>{items.length > 0 ? <ItemList items={selectedItems} /> : <>Loading</>}</section>
     </div>
   );

@@ -4,19 +4,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import("./ItemBrowser.css");
 
-function ItemBrowser({ items, selectedItem }) {
+function ItemBrowser({ navLinks, selectedItem }) {
   const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    items.forEach((item) => {
-      if (!categories.includes(item.category)) {
-        const temp = categories;
-        temp.push(item.category);
-        setCategories(temp);
-      }
-    });
-  }, []);
-
+ 
   return (
     <div id="categoryList">
       <ul>
@@ -26,7 +17,7 @@ function ItemBrowser({ items, selectedItem }) {
             <Link to="/"> [borrar]</Link>
           </li>
         ) : (
-          categories?.map((item) => {
+          navLinks?.map((item) => {
             return <li key={item}>{<Link to={`/category/${item}`}>{item}</Link>}</li>;
           })
         )}
