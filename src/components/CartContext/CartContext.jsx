@@ -41,7 +41,7 @@ function CartContext({ children }) {
     return myCart.some((item) => item.id === id);
   };
 
-  return <Contexto.Provider value={{ myCart, addItem, total, removeItem }}>{children}</Contexto.Provider>;
+  return <Contexto.Provider value={{ myCart, addItem, total, removeItem, clear }}>{children}</Contexto.Provider>;
 }
 
 export default CartContext;
