@@ -49,3 +49,8 @@ li.list-group-item {
 .list-group-item .texto .nombre {
   font-weight: bold;
 }
+
+.cartButton {
+  border: none;
+  background: none;
+}

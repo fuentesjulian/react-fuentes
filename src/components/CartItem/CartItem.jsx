@@ -5,9 +5,19 @@ import "./CartItem.css";
 
 function CartItem({ cartItem }) {
   let { id, title, price, image, stock, quantity, subTotal } = cartItem;
+  let item = { id, title, price, image, stock };
   const formattedPrice = price.toLocaleString();
   const formattedSubtotal = subTotal.toLocaleString();
-  const { removeItem } = useContext(Contexto);
+  const { removeItem, addItem } = useContext(Contexto);
+
+  const sumar = () => {
+    if (quantity < stock) addItem(item, quantity + 1);
+  };
+
+  const restar = () => {
+    if (quantity > 1) addItem(item, quantity - 1);
+  };
+
   return (
     <li className="list-group-item">
       <div className="imagen">
@@ -17,15 +27,35 @@ function CartItem({ cartItem }) {
         <div className="nombre">{title}</div>
         <div className="precio-unit">Precio unitario ${formattedPrice}</div>
       </div>
-      <div className="cantidad">{quantity}</div>
+      <div className="cantidad">
+        <button
+          className="cartButton"
+          onClick={() => {
+            restar();
+          }}
+        >
+          <i className="bi bi-dash-circle"></i>
+        </button>
+        {quantity}
+        <button
+          className="cartButton"
+          onClick={() => {
+            sumar();
+          }}
+        >
+          <i className="bi bi-plus-circle"></i>
+        </button>
+      </div>
       <div className="precio">${formattedSubtotal}</div>
-      <div
-        className="eliminar"
-        onClick={() => {
-          removeItem(id);
-        }}
-      >
-        <i className="bi bi-trash"></i>
+      <div className="eliminar">
+        <button
+          className="cartButton"
+          onClick={() => {
+            removeItem(id);
+          }}
+        >
+          <i className="bi bi-trash"></i>
+        </button>
       </div>
     </li>
   );

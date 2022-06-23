@@ -8,11 +8,22 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import NavBar from "./components/NavBar/NavBar.jsx";
 import { createContext } from "react";
 import CartContext from "./components/CartContext/CartContext";
+import { initializeApp } from "firebase/app";
 
 export const MiContexto = createContext({});
 
 function App() {
   
+  const firebaseConfig = {
+    apiKey: "AIzaSyAhJzjC_ngqUAc9UY3kO9KrhnwocQMcRoQ",
+    authDomain: "reactjs-ecommerce-coderhouse.firebaseapp.com",
+    projectId: "reactjs-ecommerce-coderhouse",
+    storageBucket: "reactjs-ecommerce-coderhouse.appspot.com",
+    messagingSenderId: "1051770751854",
+    appId: "1:1051770751854:web:6d31645fd650c004054f7f",
+  };
+
+  initializeApp(firebaseConfig);
 
   return (
     <CartContext>
