@@ -20,18 +20,18 @@ function CartContext({ children }) {
         )
       : setMyCart([...myCart, cartItem]);
   };
+
   const removeItem = (itemId) => {
-    setMyCart(
-      myCart.filter((item) => (item.id != itemId))
-    );
+    setMyCart(myCart.filter((item) => item.id != itemId));
   };
 
   const [total, setTotal] = useState(0);
+
   useEffect(() => {
-    setTotal(0);
-    myCart.forEach((item) => {
-      setTotal(total + item.subTotal);
-    });
+    const sum = myCart.reduce((accumulator, item) => {
+      return accumulator + item.subTotal;
+    }, 0);
+    setTotal(sum)
   }, [myCart]);
 
   const clear = () => {
