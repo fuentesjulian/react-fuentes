@@ -14,7 +14,7 @@ function CartWidget({ items }) {
     setItemCount(count);
   }, [myCart]);
 
-  return(<>{(itemCount>0)?<><i className="bi bi-cart-fill"></i> {itemCount} items en carrito</>:<><i className="bi bi-cart"></i> {itemCount} items en carrito</>}</>)
+  return(<>{(itemCount>0)?<><i className="bi bi-cart-fill"></i> {itemCount} items en carrito</>:<><i className="bi bi-cart"></i> Carrito vacio!</>}</>)
 }
 
 export default CartWidget;
