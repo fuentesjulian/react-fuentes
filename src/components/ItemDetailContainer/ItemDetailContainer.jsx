@@ -2,25 +2,32 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail.jsx";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 function ItemDetailContainer() {
   const { id } = useParams();
+
   const [item, setItem] = useState();
 
-  const myUrl = "https://run.mocky.io/v3/ab3ab053-792c-406b-8524-eb0e70f07b3f";
-  const fetchItem = (url, id) => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setItem(data.find((item) => item.id === parseInt(id)));
-      })
-      .catch((error) => console.log(error));
-  };
+  const coleccion = "products";
+  const db = getFirestore();
+
   useEffect(() => {
-    fetchItem(myUrl, id);
+    const itemDoc = doc(db, coleccion, id);
+    getDoc(itemDoc)
+      .then((res) => {
+        if (res.exists()) {
+          setItem({ ...res.data(), id: res.id });
+        } else {
+          console.log("Item vacio");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [id]);
 
-  return <>{(item)? <ItemDetail item={item} /> : <>Loading</>}</>;
+  return <>{item ? <ItemDetail item={item} /> : <>Loading</>}</>;
 }
 
 export default ItemDetailContainer;

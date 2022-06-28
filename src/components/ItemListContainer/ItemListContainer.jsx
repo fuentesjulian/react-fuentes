@@ -2,38 +2,57 @@ import React, { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList.jsx";
 import ItemBrowser from "../ItemBrowser/ItemBrowser.jsx";
 import { useParams } from "react-router-dom";
+import { getFirestore, getDocs, collection, query, where } from "firebase/firestore";
 
 function ItemListContainer({ greeting }) {
   const { id } = useParams();
 
+  const db = getFirestore();
+  const itemCollectionName = "products";
+  const itemCollection = collection(db, itemCollectionName);
+
+  const categoryCollectionName = "categories";
+  const categoryCollection = collection(db, categoryCollectionName);
+
   const [items, setItems] = useState([]);
-  const [navLinks, setNavLinks] = useState([]);
-  const [selectedItems, setSelectedItems] = useState([]);
-  const myUrl = "https://run.mocky.io/v3/ab3ab053-792c-406b-8524-eb0e70f07b3f";
-  const fetchItems = (url) => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setItems(data);
-        setSelectedItems(data);
-        setNavLinks([...new Set(data.map((item) => item.category))]);
-      })
-      .catch((error) => console.log(error));
-  };
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    id ? setSelectedItems(items.filter((item) => item.category === id)) : setSelectedItems(items);
+    setLoading(true);
+    if (id) {
+      const itemQuery = query(itemCollection, where("category", "==", id));
+      getDocs(itemQuery)
+        .then((res) => {
+          setItems(res.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(setLoading(false));
+    } else {
+      getDocs(itemCollection)
+        .then((res) => {
+          setItems(res.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(setLoading(false));
+    }
   }, [id]);
 
   useEffect(() => {
-    fetchItems(myUrl);
+    getDocs(categoryCollection).then((res) => {
+      setCategories(res.docs.map((doc) => ({ ...doc.data() })));
+    });
   }, []);
 
   return (
     <div id="itemListContainer">
       <section id="greeting">{greeting}</section>
-      <section>{items.length > 0 ? <ItemBrowser navLinks={navLinks} selectedItem={id} /> : <></>}</section>
-      <section>{items.length > 0 ? <ItemList items={selectedItems} /> : <>Loading</>}</section>
+      <section>{categories.length > 0 ? <ItemBrowser categories={categories} selectedItem={id} /> : <></>}</section>
+      <section>{loading ? <>Loading</> : <ItemList items={items} />}</section>
     </div>
   );
 }
