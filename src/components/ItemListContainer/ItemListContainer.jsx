@@ -3,6 +3,7 @@ import ItemList from "../ItemList/ItemList.jsx";
 import ItemBrowser from "../ItemBrowser/ItemBrowser.jsx";
 import { useParams } from "react-router-dom";
 import { getFirestore, getDocs, collection, query, where } from "firebase/firestore";
+import Loading from "../Loading/Loading.jsx";
 
 function ItemListContainer({ greeting }) {
   const { id } = useParams();
@@ -51,8 +52,8 @@ function ItemListContainer({ greeting }) {
   return (
     <div id="itemListContainer">
       <section id="greeting">{greeting}</section>
-      <section>{categories.length > 0 ? <ItemBrowser categories={categories} selectedItem={id} /> : <></>}</section>
-      <section>{loading ? <>Loading</> : <ItemList items={items} />}</section>
+      <section>{categories.length > 0 ? <ItemBrowser categories={categories} selectedItem={id} /> : <Loading />}</section>
+      <section>{loading ? <></> : <ItemList items={items} />}</section>
     </div>
   );
 }

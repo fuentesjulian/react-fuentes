@@ -67,23 +67,33 @@ function Checkout() {
   };
 
   return (
-    <div>
+    <div id="checkOut">
       {orderId ? (
         <>Gracias por tu compra. ID: {orderId}</>
       ) : (
         <>
           {myCart.length > 0 ? (
-            <>
+            <form>
               <h3>Completa tus datos para terminar la compra</h3>
-              <input onChange={(e) => setName(e.target.value)} placeholder="ingresa tu nombre"></input>
-              <input onChange={(e) => setEmail(e.target.value)} placeholder="ingresa tu email"></input>
-              <input
+              <div className="mb-3">
+              <label for="name" className="form-label">Nombre</label>
+              <input id="name" className="form-control" onChange={(e) => setName(e.target.value)} placeholder="ingresa tu nombre"></input>
+              </div>
+              <div className="mb-3">
+              <label for="email" className="form-label">Email</label>
+              <input id="email" className="form-control" onChange={(e) => setEmail(e.target.value)} placeholder="ingresa tu email"></input>
+              </div>
+              <div className="mb-3">
+              <label for="phone" className="form-label">Telefono</label>
+              <input id="phone" className="form-control"
                 onChange={(e) => setPhone(e.target.value)}
                 onKeyDown={(e) => {
                   if (invalidPhoneInput(e)) e.preventDefault();
                 }}
                 placeholder="ingresa tu telefono"
               ></input>
+              <div className="form-text">Ingresa solo numeros, sin simbolos.</div>
+              </div>
               <button
                 disabled={buttonDisabled}
                 onClick={(e) => {
@@ -94,7 +104,7 @@ function Checkout() {
               >
                 {buttonText}
               </button>
-            </>
+            </form>
           ) : (
             <EmptyCart />
           )}

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail.jsx";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
+import Loading from '../Loading/Loading.jsx';
 
 function ItemDetailContainer() {
   const { id } = useParams();
@@ -27,7 +28,7 @@ function ItemDetailContainer() {
       });
   }, [id]);
 
-  return <>{item ? <ItemDetail item={item} /> : <>Loading</>}</>;
+  return <>{item ? <ItemDetail item={item} /> :  <Loading />}</>;
 }
 
 export default ItemDetailContainer;
