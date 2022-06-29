@@ -35,14 +35,15 @@ function Checkout() {
     if (isEmailValid(email)) {
       setButtonText("Procesando compra");
       updateStocks(myCart);
-
+      const date = new Date().toLocaleDateString();
       const items = myCart.map(({ id, title, price, quantity, subTotal }) => {
         return { id, title, price, quantity, subTotal };
       });
       const order = {
         buyer: { name, email, phone },
-        total,
         items,
+        date,
+        total,
       };
       addDoc(orderCollection, order).then(({ id }) => {
         clear();
@@ -54,7 +55,6 @@ function Checkout() {
   }
 
   function invalidPhoneInput(e) {
-    console.log(e.key);
     if (e.key === "Backspace" || e.key === "ArrowLeft" || e.key === "ArrowRight" || e.key === "Delete") return false;
     if (e.key < 48 || e.key > 57) return false;
     return true;
