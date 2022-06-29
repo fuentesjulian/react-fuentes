@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar/NavBar.jsx";
 import { createContext } from "react";
 import CartContext from "./components/CartContext/CartContext";
 import { initializeApp } from "firebase/app";
+import Checkout from "./components/Checkout/Checkout.jsx";
 
 export const MiContexto = createContext({});
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/category/:id" element={<ItemListContainer />} />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartContainer />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />

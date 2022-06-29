@@ -4,6 +4,7 @@ import { Contexto } from "../CartContext/CartContext";
 import CartItem from "../CartItem/CartItem";
 import EmptyCart from "../EmptyCart/EmptyCart.jsx";
 import "./CartContainer.css";
+import { Link } from "react-router-dom";
 
 function CartContainer() {
   const { myCart, total, clear } = useContext(Contexto);
@@ -11,8 +12,8 @@ function CartContainer() {
   return (
     <>
       {myCart.length > 0 ? (
-        <div id="checkOut">
-          <ul id="checkOutList" className="list-group list-group-flush">
+        <div id="cartContainer">
+          <ul id="cartList" className="list-group list-group-flush">
             {myCart.map((cartItem) => (
               <CartItem key={cartItem.id} cartItem={cartItem} />
             ))}
@@ -29,7 +30,9 @@ function CartContainer() {
           >
             Limpiar carrito
           </button>
-          <button className="btn btn-success">Terminar mi compra</button>
+          <Link to="/checkout" className="btn btn-success">
+            Terminar mi compra
+          </Link>
         </div>
       ) : (
         <EmptyCart />

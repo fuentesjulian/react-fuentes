@@ -5,7 +5,7 @@ import cartLogo from "../../img/cartlogo.PNG";
 
 function EmptyCart() {
   return (
-    <div id="checkOut">
+    <div id="cartContainer">
       <h2>El carrito está vacío</h2>
       <div id="cartLogo">
         <img src={cartLogo} />
