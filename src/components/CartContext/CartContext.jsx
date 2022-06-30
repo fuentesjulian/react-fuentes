@@ -4,7 +4,7 @@ import { createContext, useState, useEffect } from "react";
 export const Contexto = createContext({});
 
 function CartContext({ children }) {
-  const [myCart, setMyCart] = useState([]);
+  const [myCart, setMyCart] = useState(JSON.parse(localStorage.getItem('myCart')) ?? []);
 
   const addItem = (item, quantity) => {
     const cartItem = { ...item, quantity: quantity, subTotal: item.price * quantity };
@@ -31,7 +31,8 @@ function CartContext({ children }) {
     const sum = myCart.reduce((accumulator, item) => {
       return accumulator + item.subTotal;
     }, 0);
-    setTotal(sum)
+    setTotal(sum);
+    localStorage.setItem('myCart', JSON.stringify(myCart));
   }, [myCart]);
 
   const clear = () => {

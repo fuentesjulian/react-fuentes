@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { getFirestore, getDocs, collection, query, where } from "firebase/firestore";
 import Loading from "../Loading/Loading.jsx";
 
-function ItemListContainer({ greeting }) {
+function ItemListContainer() {
   const { id } = useParams();
 
   const db = getFirestore();
@@ -44,6 +44,7 @@ function ItemListContainer({ greeting }) {
   }, [id]);
 
   useEffect(() => {
+
     getDocs(categoryCollection).then((res) => {
       setCategories(res.docs.map((doc) => ({ ...doc.data() })));
     });
@@ -51,7 +52,6 @@ function ItemListContainer({ greeting }) {
 
   return (
     <div id="itemListContainer">
-      <section id="greeting">{greeting}</section>
       <section>{categories.length > 0 ? <ItemBrowser categories={categories} selectedItem={id} /> : <Loading />}</section>
       <section>{loading ? <></> : <ItemList items={items} />}</section>
     </div>
