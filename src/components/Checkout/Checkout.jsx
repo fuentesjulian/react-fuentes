@@ -69,7 +69,7 @@ function Checkout() {
   return (
     <div id="checkOut">
       {orderId ? (
-        <>Gracias por tu compra. ID: {orderId}</>
+        <>Gracias por tu compra. ID de compra: {orderId}. En breve recibirás un email con detalles del envío!</>
       ) : (
         <>
           {myCart.length > 0 ? (
