@@ -15,7 +15,7 @@
   line-height: 0.5em;
 }
 
-.itemCard:hover {
+.itemCard.enabled:hover {
   animation-duration: 1s;
   animation-name: sombrear;
   animation-timing-function: ease-out;
@@ -117,4 +117,8 @@
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+}
+
+.itemCard.disabled{
+  opacity: 0.5;
 }
