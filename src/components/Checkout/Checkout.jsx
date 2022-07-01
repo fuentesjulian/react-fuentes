@@ -13,8 +13,10 @@ function Checkout() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [buttonText, setButtonText] = useState("Terminar compra");
 
+  const [validEmail, setValidEmail] = useState(false);
+
   useEffect(() => {
-    name && email && phone ? setButtonDisabled(false) : setButtonDisabled(true);
+    name && email && phone && validEmail ? setButtonDisabled(false) : setButtonDisabled(true);
   }, [name, email, phone]);
 
   const { myCart, total, clear } = useContext(Contexto);
@@ -66,6 +68,30 @@ function Checkout() {
       .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
   };
 
+  const NEUTRAL = "input-group-text";
+  const NOTOK = "input-group-text notOK";
+  const OK = "input-group-text OK";
+
+  const [nameClass, setNameClass] = useState(NEUTRAL);
+  const [emailClass, setEmailClass] = useState(NEUTRAL);
+  const [phoneClass, setPhoneClass] = useState(NEUTRAL);
+
+  function handleName(nameInput) {
+    setName(nameInput);
+    nameInput.length > 0 ? setNameClass(OK) : setNameClass(NOTOK);
+  }
+
+  function handleEmail(emailInput) {
+    setEmail(emailInput);
+    setValidEmail(isEmailValid(emailInput));
+    isEmailValid(emailInput) ? setEmailClass(OK) : setEmailClass(NOTOK);
+  }
+
+  function handlePhone(phoneInput) {
+    setPhone(phoneInput);
+    phoneInput.length > 0 ? setPhoneClass(OK) : setPhoneClass(NOTOK);
+  }
+
   return (
     <div id="checkOut">
       {orderId ? (
@@ -76,27 +102,51 @@ function Checkout() {
             <form>
               <h3>Completa tus datos para terminar la compra</h3>
               <div className="mb-3">
-              <label for="name" className="form-label">Nombre</label>
-              <input id="name" className="form-control" onChange={(e) => setName(e.target.value)} placeholder="ingresa tu nombre"></input>
+                <label for="name" className="form-label">
+                  Nombre
+                </label>
+                <div className="input-group mb-3">
+                  <input id="name" className="form-control" onChange={(e) => handleName(e.target.value)} placeholder="ingresa tu nombre"></input>
+                  <div className={nameClass}>
+                    <i class="bi bi-person"></i>
+                  </div>
+                </div>
               </div>
               <div className="mb-3">
-              <label for="email" className="form-label">Email</label>
-              <input id="email" className="form-control" onChange={(e) => setEmail(e.target.value)} placeholder="ingresa tu email"></input>
+                <label for="email" className="form-label">
+                  Email
+                </label>
+                <div className="input-group mb-3">
+                  <input id="email" className="form-control" onChange={(e) => handleEmail(e.target.value)} placeholder="ingresa tu email"></input>
+                  <div className={emailClass}>
+                    <i class="bi bi-envelope"></i>
+                  </div>
+                </div>
+                <div className="form-text">Debes escribir un email valido para completar la compra.</div>
               </div>
               <div className="mb-3">
-              <label for="phone" className="form-label">Telefono</label>
-              <input id="phone" className="form-control"
-                onChange={(e) => setPhone(e.target.value)}
-                onKeyDown={(e) => {
-                  if (invalidPhoneInput(e)) e.preventDefault();
-                }}
-                placeholder="ingresa tu telefono"
-              ></input>
-              <div className="form-text">Ingresa solo numeros, sin simbolos.</div>
+                <label for="phone" className="form-label">
+                  Telefono
+                </label>
+                <div className="input-group mb-3">
+                  <input
+                    id="phone"
+                    className="form-control"
+                    onChange={(e) => handlePhone(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (invalidPhoneInput(e)) e.preventDefault();
+                    }}
+                    placeholder="ingresa tu telefono"
+                  ></input>
+                  <div className={phoneClass}>
+                    <i class="bi bi-telephone"></i>
+                  </div>
+                </div>
+                <div className="form-text">Ingresa solo numeros, sin simbolos.</div>
               </div>
               <button
                 disabled={buttonDisabled}
-                onClick={(e) => {
+                onClick={() => {
                   setButtonDisabled(true);
                   handleClick();
                 }}
