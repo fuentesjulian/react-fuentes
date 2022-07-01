@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import "./ItemCheckout.css"
 
 function ItemCheckout() {
   return (
-    <div><Link className="btn btn-success" to="/cart">Go to cart</Link><Link className="btn btn-primary" to="/">Continuar compra</Link></div>
+    <div id="itemCheckout"><Link className="btn-buy" to="/">Seguir comprando</Link><Link className="btn-cart" to="/cart">Go to cart</Link></div>
   )
 }
 

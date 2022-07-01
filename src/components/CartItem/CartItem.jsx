@@ -6,8 +6,8 @@ import "./CartItem.css";
 function CartItem({ cartItem }) {
   let { id, title, price, image, stock, quantity, subTotal } = cartItem;
   let item = { id, title, price, image, stock };
-  const formattedPrice = price.toLocaleString();
-  const formattedSubtotal = subTotal.toLocaleString();
+  const formattedPrice = price.toLocaleString("es-AR", { style: "currency", currency: "ARS" });
+  const formattedSubtotal = subTotal.toLocaleString("es-AR", { style: "currency", currency: "ARS" });
   const { removeItem, addItem } = useContext(Contexto);
 
   const sumar = () => {
@@ -25,7 +25,7 @@ function CartItem({ cartItem }) {
       </div>
       <div className="texto">
         <div className="nombre">{title}</div>
-        <div className="precio-unit">Precio unitario ${formattedPrice}</div>
+        <div className="precio-unit">Precio unitario {formattedPrice}</div>
       </div>
       <div className="cantidad">
         <button
@@ -46,7 +46,7 @@ function CartItem({ cartItem }) {
           <i className="bi bi-plus-circle"></i>
         </button>
       </div>
-      <div className="precio">${formattedSubtotal}</div>
+      <div className="precio">{formattedSubtotal}</div>
       <div className="eliminar">
         <button
           className="cartButton"

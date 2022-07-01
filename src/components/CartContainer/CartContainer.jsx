@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function CartContainer() {
   const { myCart, total, clear } = useContext(Contexto);
-  const formattedTotal = total.toLocaleString();
+  const formattedTotal = total.toLocaleString("es-AR", { style: "currency", currency: "ARS" });
   return (
     <>
       {myCart.length > 0 ? (
@@ -19,7 +19,7 @@ function CartContainer() {
             ))}
             <li className="list-group-item total">
               <div className="texto total">Total</div>
-              <div className="precio">${formattedTotal}</div>
+              <div className="precio">{formattedTotal}</div>
             </li>
           </ul>
           <button

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import "./ItemCount.css";
+import React from "react";
+import { useState, useContext } from "react";
+import { Contexto } from "../CartContext/CartContext";
+import "./ItemCountUpdate.css";
 
-function ItemCount({ stock, initial, onAdd }) {
+function ItemCountUpdate({ stock, initial, onAdd, id }) {
   const [counter, setCounter] = useState(Math.min(initial, stock));
-
+  const { removeItem } = useContext(Contexto);
   const sumar = () => {
     if (counter < stock) setCounter(counter + 1);
   };
@@ -19,7 +21,7 @@ function ItemCount({ stock, initial, onAdd }) {
         </button>
         <div className="cantidad">{counter}</div>
         <button className="itemButton" onClick={sumar}>
-        <i className="bi bi-plus-circle"></i>
+          <i className="bi bi-plus-circle"></i>
         </button>
       </div>
       <div className="stock">{stock > 0 ? <>Stock: {stock} unidades</> : <>Sin stock</>}</div>
@@ -29,10 +31,18 @@ function ItemCount({ stock, initial, onAdd }) {
           if (stock > 0) onAdd(counter);
         }}
       >
-        Agregar al carrito
+        Actualizar cantidad
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => {
+          removeItem(id);
+        }}
+      >
+         <i className="bi bi-trash"></i>
       </button>
     </div>
   );
 }
 
-export default ItemCount;
+export default ItemCountUpdate;

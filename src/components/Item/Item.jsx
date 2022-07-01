@@ -5,7 +5,7 @@ import "./Item.css";
 function Item({ item }) {
   let { id, title, price, image, stock } = item;
 
-  const formattedPrice = price.toLocaleString();
+  const formattedPrice = price.toLocaleString("es-AR", { style: "currency", currency: "ARS" });
 
   return (
     <div className={stock > 0 ? "itemCard enabled" : "itemCard disabled"}>
@@ -15,7 +15,7 @@ function Item({ item }) {
           <p className="itemCard-title">{title}</p>
         </div>
         <div className="itemCard-bodyBottom">
-          <div className="itemCard-price">$ {formattedPrice}</div>
+          <div className="itemCard-price">{formattedPrice}</div>
           <div className="itemCard-stock">Stock: {stock} unidades</div>
           <div className="col-md-12 text-center itemCard-btn">
             {stock > 0 ? (
