@@ -2,12 +2,26 @@
   list-style-type: none;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 #categoryList ul li {
-  margin: 1em;
+  margin: 0.5em;
 }
 
 #categoryList ul li a {
   text-decoration: none;
+}
+
+/* responsive: Mobile */
+@media screen and (min-width: 320px) {
+  #categoryList ul {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  #categoryList ul {
+    flex-direction: row;
+  }
 }

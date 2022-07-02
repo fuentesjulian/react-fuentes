@@ -1,0 +1,47 @@
+.fieldName {
+  grid-area: fieldName;
+  font-weight: bold;
+}
+
+.fieldData {
+  grid-area: fieldData;
+}
+.buyerData {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.buyerDataField {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-areas: "fieldName fieldData";
+  justify-content: start;
+}
+
+.itemTitle{
+    grid-area: itemTitle;
+}
+.itemPrice{
+    grid-area: itemPrice;
+    justify-self: end;
+    padding-right: 0.5em;
+}
+.itemQuantity{
+    grid-area: itemQuantity;
+}
+.itemSubtotal{
+    grid-area: itemSubtotal;
+    justify-self: end;
+}
+
+.orderDataField {
+  display: grid;
+  grid-template-columns: 40% 10% 10% 10%;
+  grid-template-areas: "itemTitle itemPrice itemQuantity itemSubtotal";
+  font-size: small;
+}
+
+.orderData{
+    margin-bottom: 2em;
+    margin-top: 1em;
+}

@@ -4,6 +4,8 @@ import { useState, useContext, useEffect } from "react";
 import { Contexto } from "../CartContext/CartContext";
 import { addDoc, collection, getFirestore, doc, updateDoc } from "firebase/firestore";
 import EmptyCart from "../EmptyCart/EmptyCart";
+import Receipt from "../Receipt/Receipt";
+import ReceiptContainer from "../ReceiptContainer/ReceiptContainer";
 
 function Checkout() {
   const [name, setName] = useState("");
@@ -34,26 +36,22 @@ function Checkout() {
   }
 
   function handleClick() {
-    if (isEmailValid(email)) {
-      setButtonText("Procesando compra");
-      updateStocks(myCart);
-      const date = new Date().toLocaleDateString();
-      const items = myCart.map(({ id, title, price, quantity, subTotal }) => {
-        return { id, title, price, quantity, subTotal };
-      });
-      const order = {
-        buyer: { name, email, phone },
-        items,
-        date,
-        total,
-      };
-      addDoc(orderCollection, order).then(({ id }) => {
-        clear();
-        setOrderId(id);
-      });
-    } else {
-      alert("Email invalido");
-    }
+    setButtonText("Procesando compra");
+    updateStocks(myCart);
+    const date = new Date().toLocaleDateString();
+    const items = myCart.map(({ id, title, price, quantity, subTotal }) => {
+      return { id, title, price, quantity, subTotal };
+    });
+    const order = {
+      buyer: { name, email, phone },
+      items,
+      date,
+      total,
+    };
+    addDoc(orderCollection, order).then(({ id }) => {
+      clear();
+      setOrderId(id);
+    });
   }
 
   function invalidPhoneInput(e) {
@@ -95,7 +93,9 @@ function Checkout() {
   return (
     <div id="checkOut">
       {orderId ? (
-        <>Gracias por tu compra. ID de compra: {orderId}. En breve recibirás un email con detalles del envío!</>
+        <>
+          <ReceiptContainer orderId={orderId} />
+        </>
       ) : (
         <>
           {myCart.length > 0 ? (

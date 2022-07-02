@@ -10,11 +10,11 @@ function ItemDetailContainer() {
 
   const [item, setItem] = useState();
 
-  const coleccion = "products";
+  const collection = "products";
   const db = getFirestore();
 
   useEffect(() => {
-    const itemDoc = doc(db, coleccion, id);
+    const itemDoc = doc(db, collection, id);
     getDoc(itemDoc)
       .then((res) => {
         if (res.exists()) {
