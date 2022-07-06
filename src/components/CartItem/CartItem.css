@@ -35,12 +35,28 @@
   grid-area: eliminarCheckout;
 }
 
-li.list-group-item {
-  display: grid;
-  grid-template-columns: 20% 40% 20% 15% 5%;
-  align-items: center;
-  grid-template-areas: "imagenCheckOut textoCheckOut cantidadCheckOut precioCheckOut eliminarCheckout";
+@media screen and (min-width: 320px) {
+  li.list-group-item {
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    grid-template-areas: "imagenCheckOut" "textoCheckOut" "cantidadCheckOut" "precioCheckOut" "eliminarCheckout";
+  }
+
 }
+
+@media screen and (min-width: 700px) {
+  li.list-group-item {
+    display: grid;
+    grid-template-columns: 20% 40% 20% 15% 5%;
+    align-items: center;
+    grid-template-areas: "imagenCheckOut textoCheckOut cantidadCheckOut precioCheckOut eliminarCheckout";
+  }
+  
+
+}
+
+
 
 .list-group-item .imagen img {
   max-width: 8em;
