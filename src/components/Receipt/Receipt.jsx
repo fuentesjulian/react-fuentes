@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
 import "./Receipt.css";
 
 function Receipt({ order }) {

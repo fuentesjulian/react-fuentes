@@ -5,7 +5,6 @@ import CartItem from "../CartItem/CartItem";
 import EmptyCart from "../EmptyCart/EmptyCart.jsx";
 import "./CartContainer.css";
 import { Link } from "react-router-dom";
-import Modal from "../YesNoModal/YesNoModal";
 import YesNoModal from "../YesNoModal/YesNoModal";
 
 function CartContainer() {

@@ -3,7 +3,7 @@ import { Contexto } from "./CartContext/CartContext";
 import { useContext } from "react";
 import { useState, useEffect } from "react";
 
-function CartWidget({ items }) {
+function CartWidget() {
   const { myCart } = useContext(Contexto);
   const [itemCount, setItemCount] = useState(0);
   useEffect(() => {

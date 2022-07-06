@@ -4,7 +4,6 @@ import { useState, useContext, useEffect } from "react";
 import { Contexto } from "../CartContext/CartContext";
 import { addDoc, collection, getFirestore, doc, updateDoc } from "firebase/firestore";
 import EmptyCart from "../EmptyCart/EmptyCart";
-import Receipt from "../Receipt/Receipt";
 import ReceiptContainer from "../ReceiptContainer/ReceiptContainer";
 
 function Checkout() {
