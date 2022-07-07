@@ -9,6 +9,7 @@ import Header from "./components/Header/Header.jsx";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import NavBar from "./components/NavBar/NavBar.jsx";
+import OrderTracker from "./components/OrderTracker/OrderTracker";
 
 
 function App() {
@@ -36,6 +37,8 @@ function App() {
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartContainer />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/track" element={<OrderTracker />} />
+          <Route path="/track/:id" element={<OrderTracker />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />

@@ -44,7 +44,7 @@ function NavBar() {
                 </NavDropdown.Item>
               ))}
             </NavDropdown>
-            <Nav.Link as={Link} to="/cart" onClick={() => setExpanded(false)}>
+            <Nav.Link as={Link} to="/track" onClick={() => setExpanded(false)}>
               Seguir Orden
             </Nav.Link>
           </Nav>

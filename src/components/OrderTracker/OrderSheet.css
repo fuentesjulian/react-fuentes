@@ -1,0 +1,71 @@
+.fieldName {
+  grid-area: fieldName;
+  font-weight: bold;
+}
+
+.fieldData {
+  grid-area: fieldData;
+}
+.buyerData {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.buyerDataField {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-areas: "fieldName fieldData";
+  justify-content: start;
+}
+
+.itemTitle {
+  grid-area: itemTitle;
+}
+.itemPrice {
+  grid-area: itemPrice;
+  justify-self: end;
+  padding-right: 0.5em;
+}
+.itemQuantity {
+  grid-area: itemQuantity;
+}
+.itemSubtotal {
+  grid-area: itemSubtotal;
+  justify-self: end;
+}
+
+.orderDataField {
+  display: grid;
+  grid-template-columns: 40% 10% 10% 10%;
+  grid-template-areas: "itemTitle itemPrice itemQuantity itemSubtotal";
+  font-size: small;
+}
+
+.orderData {
+  margin-bottom: 2em;
+  margin-top: 1em;
+}
+
+.orderStatus {
+    display: block;
+    width: fit-content;
+    font-size: xx-small;
+    color: rgb(12, 199, 12);
+    height: 2em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    margin-left: auto;
+    margin-right: 0em;
+    border: 2px solid rgb(12, 199, 12);
+  }
+
+  #orderSheet{
+    max-width: 40em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    padding: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
