@@ -1,4 +1,34 @@
-.navbar-text {
-  margin-right: 0;
+#myNavBar .dropdown-item a {
+  text-decoration: none;
+  color: black;
+  display:block;
+  width: 100%;
+  height: 100%;
+}
+
+#myNavBar .navbar-brand {
+  font-size: medium;
+}
+.iconos {
+  margin: 0px 3px 0px 20px;
+}
+.iconos :hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+#cart {
+  margin-right: 0.5em;
   margin-left: auto;
+}
+
+#prueba {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+@media screen and (min-width: 576px) {
+  #cart {
+    margin-right: 0.5em;
+    margin-left: auto;
+    order: 1;
+  }
 }

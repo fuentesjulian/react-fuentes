@@ -8,13 +8,13 @@
   margin-right: auto;
 }
 
-.container {
+.contenedor {
   height: 15px;
   width: 105px;
   display: flex;
   position: relative;
 }
-.container .circle {
+.contenedor .circle {
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -22,13 +22,13 @@
   animation: move 500ms linear 0ms infinite;
   margin-right: 30px;
 }
-.container .circle:first-child {
+.contenedor .circle:first-child {
   position: absolute;
   top: 0;
   left: 0;
   animation: grow 500ms linear 0ms infinite;
 }
-.container .circle:last-child {
+.contenedor .circle:last-child {
   position: absolute;
   top: 0;
   right: 0;
