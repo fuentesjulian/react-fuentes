@@ -38,3 +38,12 @@
   margin-right: 0em;
   border: 2px solid rgb(12, 199, 12);
 }
+
+.price {
+  display: flex;
+}
+
+.decimals{
+  font-size: small;
+  margin-top: 0.15em;
+}

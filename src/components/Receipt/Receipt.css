@@ -10,38 +10,89 @@
   margin-bottom: 1em;
   margin-top: 1em;
 }
-
-.buyerDataField {
-  display: grid;
-  grid-template-columns: 30% 70%;
-  grid-template-areas: "fieldName fieldData";
-  justify-content: start;
-}
-
-.itemTitle{
-    grid-area: itemTitle;
-}
-.itemPrice{
-    grid-area: itemPrice;
-    justify-self: end;
-    padding-right: 0.5em;
-}
-.itemQuantity{
-    grid-area: itemQuantity;
-}
-.itemSubtotal{
-    grid-area: itemSubtotal;
-    justify-self: end;
-}
-
-.orderDataField {
-  display: grid;
-  grid-template-columns: 40% 10% 10% 10%;
-  grid-template-areas: "itemTitle itemPrice itemQuantity itemSubtotal";
-  font-size: small;
-}
-
-.orderData{
+@media screen and (min-width: 320px) {
+  .buyerDataField {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas: "fieldName" "fieldData";
+    justify-content: start;
+  }
+  .orderDataField {
+    display: grid;
+    grid-template-columns: 50% 40% 10%;
+    
+    grid-template-areas: "itemTitle itemPrice itemQuantity" "itemSubtotal itemSubtotal blank";
+    font-size: small;
+    justify-content: start;
+  }
+  #orderSheet {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    padding: 0.2em;
+    margin-top: 2em;
     margin-bottom: 2em;
-    margin-top: 1em;
+  }
+}
+@media screen and (min-width: 576px) {
+  .buyerDataField {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-areas: "fieldName fieldData";
+    justify-content: start;
+  }
+  .orderDataField {
+    display: grid;
+    grid-template-columns: 50% 20% 10% 20%;
+    grid-template-areas: "itemTitle itemPrice itemQuantity itemSubtotal";
+    font-size: small;
+  }
+  #orderSheet {
+    max-width: 40em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    padding: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+}
+
+.itemTitle {
+  grid-area: itemTitle;
+}
+.itemPrice {
+  grid-area: itemPrice;
+  justify-self: end;
+}
+.itemQuantity {
+  grid-area: itemQuantity;
+  padding-left: 0.5em;
+}
+.itemSubtotal {
+  grid-area: itemSubtotal;
+  justify-self: end;
+}
+
+
+
+.orderData {
+  margin-bottom: 2em;
+  margin-top: 1em;
+}
+
+.orderStatus {
+  display: block;
+  width: fit-content;
+  font-size: xx-small;
+  color: rgb(12, 199, 12);
+  height: 2em;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  margin-left: auto;
+  margin-right: 0em;
+  border: 2px solid rgb(12, 199, 12);
 }

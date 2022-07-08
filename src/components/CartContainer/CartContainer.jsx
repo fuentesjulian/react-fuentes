@@ -26,12 +26,14 @@ function CartContainer() {
                 <div className="precio">{formattedTotal}</div>
               </li>
             </ul>
-            <button className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal">
-              Limpiar carrito
-            </button>
-            <Link to="/checkout" className="btn btn-success">
-              Terminar mi compra
-            </Link>
+            <div className="buttons">
+              <button id="cleanCartBtn" className="btn btn-danger cartButton" data-bs-toggle="modal" data-bs-target="#myModal">
+                Limpiar carrito
+              </button>
+              <Link id="checkoutBtn" to="/checkout" className="btn btn-success cartButton">
+                Terminar mi compra
+              </Link>
+            </div>
           </div>
           <YesNoModal modalTitle={modalTitle} modalText={modalText} modalFunction={clear} />
         </>

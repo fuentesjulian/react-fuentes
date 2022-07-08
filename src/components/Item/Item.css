@@ -9,6 +9,12 @@
 
 .itemCard-price {
   font-size: 1.5em;
+  display: flex;
+}
+
+.itemCard-price .decimals{
+  font-size: small;
+  margin-top: 0.35em;
 }
 .itemCard-stock {
   font-size: smaller;

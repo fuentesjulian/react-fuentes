@@ -3,3 +3,11 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.buttons{
+  display: flex;
+  justify-content: center;
+}
+.cartButton{
+  margin: 0.5em
+}

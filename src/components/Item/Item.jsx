@@ -15,7 +15,7 @@ function Item({ item }) {
           <p className="itemCard-title">{title}</p>
         </div>
         <div className="itemCard-bodyBottom">
-          <div className="itemCard-price">{formattedPrice}</div>
+          <div className="itemCard-price">{formattedPrice.substring(0,formattedPrice.length-3)}<div className="decimals">{formattedPrice.substring(formattedPrice.length-2,formattedPrice.length)}</div></div>
           <div className="itemCard-stock">Stock: {stock} unidades</div>
           <div className="col-md-12 text-center itemCard-btn">
             {stock > 0 ? (

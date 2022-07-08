@@ -38,7 +38,7 @@ function ItemDetail({ item }) {
                   {isInCart(id) ? <div className="inCart">En Carrito</div> : <></>}
                 </div>
                 <p className="card-text">{description}</p>
-                <h5>Precio: {formattedPrice}</h5>
+                <h5 className="price">Precio: {formattedPrice.substring(0,formattedPrice.length-3)}<div className="decimals">{formattedPrice.substring(formattedPrice.length-2,formattedPrice.length)}</div></h5>
                 {ordered ? <ItemCheckout /> : isInCart(id) ? <ItemCountUpdate stock={stock} initial={initQuantity} onAdd={onAdd} id={id} /> : <ItemCount stock={stock} initial={initQuantity} onAdd={onAdd} />}
               </div>
             </div>
