@@ -45,7 +45,7 @@ function NavBar() {
               ))}
             </NavDropdown>
             <Nav.Link as={Link} to="/track" onClick={() => setExpanded(false)}>
-              Seguir Orden
+              Status Orden
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

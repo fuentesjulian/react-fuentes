@@ -1,7 +1,8 @@
 import "./Receipt.css";
+import { Link } from "react-router-dom";
 
 function Receipt({ order }) {
-  return <>Gracias por tu compra. ID de compra: {order.id}. En breve recibirás un email con detalles del envío!
+  return <>Gracias por tu compra. ID de compra: {order.id}. En breve recibirás un email con detalles del envío! Puedes hacer seguimiento en nuestro sección de <Link to="/track">Status orden</Link> con tu ID de orden o puede directamente hacer <Link to={`/track/${order.id}`}>click en este link</Link>.
   <h2>Factura</h2>
           <div className="buyerData">
             <div className="buyerDataField">
