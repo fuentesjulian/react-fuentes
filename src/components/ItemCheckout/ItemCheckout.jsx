@@ -4,7 +4,7 @@ import "./ItemCheckout.css"
 
 function ItemCheckout() {
   return (
-    <div id="itemCheckout"><Link className="btn-buy" to="/">Seguir comprando</Link><Link className="btn-cart" to="/cart">Go to cart</Link></div>
+    <div id="itemCheckout"><Link className="btn-buy" to="/">Seguir comprando</Link><Link className="btn-cart" to="/cart">Ir al carrito</Link></div>
   )
 }
 
