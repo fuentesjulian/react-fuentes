@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Loopa: falso e-commerce con React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Acerca de:
+Este proyecto se trata de un falso e-commerce. Tanto los productos (sus precios, imágenes, stock) como las categorías de los mismos se generan automáticamente en función a la info cargada en una base de datos de Firebase. Cuenta con la funcionalidad de agregar items al carrito de compras con una lógica de stocks y cantidades ordenadas, y la capacidad de mantener los datos del carrito aunque hayamos cerrado nuestro navegador mediante local storage. A la hora de borrar items de manera individual o de borrar el carrito cuenta con un mensaje de confirmación. Las cantidades ordenadas se pueden modifciar tanto en la vista individual como en la visión conjunta del carrito. Al momento del checkout se le piden completar los datos de contacto al usuario, que son validados antes de permitir la finalización de la compra. Una vez terminada la compra, la app devuelve un ID de orden que puede ser utilizado para el tracking de la misma. Los stocks disponibles de la app se actualizan con cada compra.
 
-## Available Scripts
+## Deployment
+Este proyecto está hosteado en Firebase, podés ingresar y probarlo en el siguiente link:
+https://reactjs-ecommerce-coderhouse.web.app/
 
-In the project directory, you can run:
+Si preferís correrlo de manera local, seguí los siguientes pasos:
+1. Descargá este repositorio.
+2. Instalá las dependencias con *npm install*
+3. Corré el comando *npm start*.
+4. Abrí http://localhost:3000/ en tu navegador favorito.
 
-### `npm start`
+## Build
+Este proyecto fue creado con React
+### Librerías utilizadas
+* [React-router-dom](https://v5.reactrouter.com/web/guides/quick-start): permite implementar routing dinámico en la app. **Añadilo a tu proyecto con *npm i react-router-dom*.**
+* [React-bootstrap](https://react-bootstrap.github.io/): provee componentes de diseño de Bootstrap. **Añadilo a tu proyecto con *npm install react-bootstrap bootstrap*.**
+* [Bootstrap-icons](https://icons.getbootstrap.com/): es una librería de íconos. **Añadilo a tu proyecto con *npm i bootstrap-icons*.**
+* [Firebase](https://firebase.google.com/): permite la conexión con una base de datos tipo NoSQL, tanto para leer como escribir datos. **Añadilo a tu proyecto con *npm install firebase*.**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Encontré un error o tengo una sugerencia!
+Contactame a fuentesjuli@gmail.com
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+***
+***
 
-### `npm test`
+# Loopa: fake e-commerce with React
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## About:
+This project is a fake e-commerce. All products (their prices, images, stock) and categories are popullated dinamically based on data that's stored in a Firebase Database. This app allows you to add items to a cart and it has an order and stock logic and the capability to retrieve the cart data after you closed your browser. When it comes to deleting an item or the whole cart, there's an alert that asks to confirm to proceed. All item quantities can be modified either on the cart or on the item detailed view. The fake checkout is a form where the user data is completed; all the fields are validated before the form submission. Once the purchase is finished, the app sends an order ID that can be used to track the order status. Stock availability is updated after each purchase.
 
-### `npm run build`
+## Deployment
+This project is hosted in firebase, you can find it here:
+https://reactjs-ecommerce-coderhouse.web.app/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You can run it locally following these steps:
+1. Download this repository
+2. Install all dependencies with *npm install*
+3. Run the projec with *npm start*.
+4. Open http://localhost:3000/ in your favorite browser.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Build
+This project was build using React
+### Libraries:
+* [React-router-dom](https://v5.reactrouter.com/web/guides/quick-start): allos dynamic routing. **Add it to your project: *npm i react-router-dom*.**
+* [React-bootstrap](https://react-bootstrap.github.io/): provides Bootrstrap components for React. **Add it to your project: con *npm install react-bootstrap bootstrap*.**
+* [Bootstrap-icons](https://icons.getbootstrap.com/): an icons library. **Add it to your project: *npm i bootstrap-icons*.**
+* [Firebase](https://firebase.google.com/): used to create a connection with a NoSQL database (read and write). **Add it to your project: *npm install firebase*.**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Bugs or feedback!
+In case you found any bug or you just want to give me feedback please reach me out at fuentesjuli@gmail.com
