@@ -7,13 +7,11 @@ function ItemBrowser({ categories, selectedItem }) {
       <ul>
         {selectedItem ? (
           <li>
-            {categories.find(({ category }) => category === selectedItem).label}
+            Estas viendo {categories.find(({ category }) => category === selectedItem).label}
             <Link to="/"> [borrar]</Link>
           </li>
         ) : (
-          categories?.map((category) => {
-            return <li key={category.category}>{<Link to={`/category/${category.category}`}>{category.label}</Link>}</li>;
-          })
+          <li>Conoce todos nuestros productos</li>
         )}
       </ul>
     </div>
